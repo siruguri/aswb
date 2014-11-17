@@ -4,12 +4,12 @@ AswbPrototype::Application.routes.draw do
 
   # I like having this to populate the navbar with, via the database rather than do it in the views.
   resources :navbar_entries
-
+  resources :jurisdictions
+  
   # Logins and Profiles
   devise_for :users
   resources :users, path: 'profiles'
 
-  root to: 'tasks#index' # Change this to something else in your app.
 
   # The rest of the routes file is probably useless to most new apps based on this template, EXCEPT for the 
   # 404 catchall below which has to always be at the end.

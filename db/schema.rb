@@ -11,22 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220054846) do
+ActiveRecord::Schema.define(version: 20141117222738) do
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
+  create_table "changes", force: true do |t|
+    t.text     "changed_val"
+    t.string   "changed_by"
+    t.string   "changed_key"
+    t.string   "change_type"
+    t.integer  "jurisdiction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "locations", force: true do |t|
-    t.float    "lat"
-    t.float    "long"
+  create_table "jurisdictions", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "exempted_groups"
+    t.text     "ce_requirements_info"
+    t.text     "definitions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "phone_number"
+    t.string   "website"
     t.integer  "owner_id"
+  end
+
+  create_table "licensed_practices", force: true do |t|
+    t.integer  "jurisdiction_id"
+    t.integer  "practice_info_id"
+    t.text     "education_experiences"
+    t.text     "supervised_experiences"
+    t.string   "exam_required"
+    t.boolean  "board_approval"
+    t.integer  "renewal_period_in_years"
+    t.integer  "ce_in_hours"
+    t.text     "special_ce_requirements"
+    t.boolean  "provision_or_temp"
+    t.string   "inactive_or_retired"
+    t.float    "application_fee"
+    t.text     "fees"
+    t.integer  "renewal_schedule_in_years"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "navbar_entries", force: true do |t|
@@ -75,22 +101,9 @@ ActiveRecord::Schema.define(version: 20140220054846) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
 
-  create_table "task_categorizations", force: true do |t|
-    t.integer  "task_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tasks", force: true do |t|
+  create_table "practice_infos", force: true do |t|
     t.string   "title"
-    t.integer  "owner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.date     "due_date"
-  end
-
-  create_table "test_models", force: true do |t|
+    t.string   "initials"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,7 @@
+Jurisdiction.create name: 'Alaska', address: 'Board of Social Work Examiners, PO Box 110806, Juneau, AK 99811-0806', phone_number: '', website, ''
+
+Jurisdiction.create name: 'Alberta', 'Alberta College of Social Workers, #550 10707 100 Avenue NW, Edmonton, AB T5J 3M1', phone_number: '(780) 421-1167', website: 'www.acsw.ab.ca'
+
+Jurisdiction.create name: 'Arizona', 'Board of Behavioral Health Examiners, 3443 North Central Avenue, Suite 1700, Phoenix, AZ 85012', phone_number: '(602)542-1882', website: 'www.azbbhe.us/'
+
+

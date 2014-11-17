@@ -18,6 +18,11 @@ title, initial
 has_many :licensed_practices
 has_many :jurisdictions, through: :licensed_practices
 
+# Change
+
+changed_val, changed_by, changed_key, change_type (jurisdiction info OR license info)
+belongs_to :jurisdiction
+
 # DescribedModel
 
 * name = Jurisdiction or LicenseType
