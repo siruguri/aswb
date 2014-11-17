@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TestDk::Application.load_tasks
+AswbPrototype::Application.load_tasks
