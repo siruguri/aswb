@@ -24,7 +24,7 @@ class Jurisdiction < ActiveRecord::Base
         else
           val=nil
         end
-        {key: val}
+        acc.merge({key => val})
       end
       
       h[:practices].last.merge! final_hash

@@ -23,10 +23,10 @@ class LicensedPractice < ActiveRecord::Base
   end
 
   def map_title
-    self.title
+    self.practice_info.title
   end
   def map_initials
-    self.initials
+    self.practice_info.initials
   end
   
 end
