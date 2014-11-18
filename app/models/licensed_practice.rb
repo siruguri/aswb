@@ -21,4 +21,12 @@ class LicensedPractice < ActiveRecord::Base
       []
     end
   end
+
+  def map_title
+    self.title
+  end
+  def map_initials
+    self.initials
+  end
+  
 end

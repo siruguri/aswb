@@ -7,13 +7,27 @@ class Jurisdiction < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
 
   def set_attribute_keys
+    # allowed keys
+    allowed_keys = [:title, :initials, :exam_required]
+    
     # Create a map from the database attributes to a hash that the front end will consume
     h={name: self.name, address: self.address, practices: [], changes_pending: Change.where(jurisdiction: self, confirmed: false).count}
 
     # Merge in each licensed practice's info
     self.licensed_practices.each do |lp|
-      h[:practices] << {title: lp.practice_info.title, initials: lp.practice_info.initials, info: {}}
-      h[:practices].last.merge!({exam_required: lp.map_exam_required})
+      h[:practices] << {info: {}}
+
+      final_hash = allowed_keys.inject({}) do |acc, key|
+        mesg = "map_#{key}"
+        if lp.respond_to? mesg.to_sym
+          val=lp.send mesg.to_sym
+        else
+          val=nil
+        end
+        {key: val}
+      end
+      
+      h[:practices].last.merge! final_hash
     end
 
     @attribute_keys=h
