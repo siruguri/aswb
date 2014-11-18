@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117222738) do
+ActiveRecord::Schema.define(version: 20141118000618) do
 
   create_table "changes", force: true do |t|
     t.text     "changed_val"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20141117222738) do
     t.integer  "jurisdiction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "practice_info_id"
+    t.boolean  "confirmed"
   end
 
   create_table "jurisdictions", force: true do |t|

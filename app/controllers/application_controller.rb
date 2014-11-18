@@ -44,7 +44,9 @@ class ApplicationController < ActionController::Base
     if request.env.key? "HTTP_REFERER"
       redirect_to :back, :alert => message
     else
-      redirect_to root_url, :alert => message
+      redirect_to "/", :alert => message
+
+#      redirect_to root_url, :alert => message
     end
   end 
 
