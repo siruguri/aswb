@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140220054846) do
     t.float    "long"
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "owner_id"
   end
 
@@ -88,11 +88,6 @@ ActiveRecord::Schema.define(version: 20140220054846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "due_date"
-  end
-
-  create_table "test_models", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
