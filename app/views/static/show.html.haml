@@ -1,0 +1,36 @@
+.changes
+  .container
+    .row
+      .col-xs-10.col-xs-offset-1
+        .change
+          %h2 Highest Education Required
+          %h3 Original Text
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+          %h3 New Text
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+          .change-buttons
+            %button{class: 'btn btn-success'} Accept
+            %button{class: 'btn btn-danger'} Deny
+
+        .comments
+          .comment-header
+            %p Comments
+          .comment-container
+            .comment
+              <span><a href='#'>ASWB Admin</a></span><br />
+              Hey Tom, I don't like this change. It has too many words that make no sense. Where did you even get this crazy text? Oh no, I've been infected too!
+
+              Mauris bibendum eu quam quis porttitor. Donec quis dignissim turpis, sit amet aliquet arcu. Sed volutpat risus quis congue molestie. Proin lorem tellus, dapibus quis ultrices ut, faucibus a sem. Donec vitae purus feugiat, vehicula lectus sit amet, pellentesque turpis. 
+
+            .comment
+              <span><a href='#'>ASWB User</a></span><br />
+              Mauris bibendum eu quam quis porttitor. Donec quis dignissim turpis, sit amet aliquet arcu. Sed volutpat risus quis congue molestie. Proin lorem tellus, dapibus quis ultrices ut, faucibus a sem. Donec vitae purus feugiat, vehicula lectus sit amet, pellentesque turpis. 
+          .comment-form
+            %form
+              .form-group
+                %label
+                  %span 
+                    %a{href:'#'} ASWB Admin:
+                %textarea{class: 'form-control comment-text', placeholder: 'Enter your comment...'}
+                %button{type: 'button', class: 'btn btn-primary', onClick: 'appendComment();'} Add Comment
