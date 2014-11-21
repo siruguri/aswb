@@ -12,6 +12,8 @@ AswbPrototype::Application.routes.draw do
     end
   end
   
+  resources :static
+
   # Logins and Profiles
   devise_for :users
   resources :users, path: 'profiles'

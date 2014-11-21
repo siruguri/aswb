@@ -24,7 +24,7 @@ urg_c=Category.find_or_create_by(name: 'Urgent')
 proc_c=Category.find_or_create_by(name: 'Procrastinate')
 
 # Let's leave the tasks as created in duplicate if rake db:seed is re-run.
-t=Task.create({title: "Wash clothes", due_date: Date.today + 1}})
+t=Task.create({title: "Wash clothes", due_date: Date.today + 1})
 t.owner = admin_u
 
 t.categories << urg_c

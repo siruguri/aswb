@@ -17,3 +17,15 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+//
+
+var appendComment = function() {
+  var comment_text = $('.comment-text').val();
+  $('.comment-text').val('');
+  $('.comment-container').append("<div class='comment'><span><a href='#'>ASWB Admin</a></span><br />" + comment_text + "</div>");
+}
+var collapse = function() {
+  $('.change-uncollapsed').toggle();
+  $('.change-collapsed').toggle();
+  $('.comments').toggle();
+};
