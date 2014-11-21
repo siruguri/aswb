@@ -1,0 +1,12 @@
+.container.edit-jurisdiction
+  %h3 Edit your Jursidction Details
+  %form
+    - @entries.each do |entry|
+      .form-group
+        %label 
+          = entry[:label]
+        %textarea.form-control
+          = entry[:value]
+    %button{type: "submit", class: "btn btn-primary"}Update
+
+    
