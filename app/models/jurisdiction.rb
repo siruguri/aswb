@@ -18,12 +18,8 @@ class Jurisdiction < ActiveRecord::Base
       h[:practices] << {info: {}}
 
       final_hash = allowed_keys.inject({}) do |acc, key|
-        mesg = "map_#{key}"
-        if lp.respond_to? mesg.to_sym
-          val=lp.send mesg.to_sym
-        else
-          val=nil
-        end
+        val = lp.get_attribute_val(key)
+        
         acc.merge({key => val})
       end
       

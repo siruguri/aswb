@@ -1,0 +1,40 @@
+.changes
+  .container
+    .row
+      .col-xs-10.col-xs-offset-1
+        .change
+          %h2
+            = key_display @req_change.changed_key
+          %h3 Original Text
+          %p
+            = @licensed_practice.get_attribute_val @req_change.changed_key
+
+          %h3 New Text
+          %p
+            = @req_change.changed_val
+
+          .change-buttons
+            %button{class: 'btn btn-success'} Accept
+            %button{class: 'btn btn-danger'} Deny
+
+        .comments
+          .comment-header
+            %p Comments
+          .comment-container
+            .comment
+              <span><a href='#'>ASWB Admin</a></span><br />
+              Hey Tom, I don't like this change. It has too many words that make no sense. Where did you even get this crazy text? Oh no, I've been infected too!
+
+              Mauris bibendum eu quam quis porttitor. Donec quis dignissim turpis, sit amet aliquet arcu. Sed volutpat risus quis congue molestie. Proin lorem tellus, dapibus quis ultrices ut, faucibus a sem. Donec vitae purus feugiat, vehicula lectus sit amet, pellentesque turpis. 
+
+            .comment
+              <span><a href='#'>ASWB User</a></span><br />
+              Mauris bibendum eu quam quis porttitor. Donec quis dignissim turpis, sit amet aliquet arcu. Sed volutpat risus quis congue molestie. Proin lorem tellus, dapibus quis ultrices ut, faucibus a sem. Donec vitae purus feugiat, vehicula lectus sit amet, pellentesque turpis. 
+          .comment-form
+            %form
+              .form-group
+                %label
+                  %span 
+                    %a{href:'#'} ASWB Admin:
+                %textarea{class: 'form-control comment-text', placeholder: 'Enter your comment...'}
+                %button{type: 'button', class: 'btn btn-primary', onClick: 'appendComment();'} Add Comment

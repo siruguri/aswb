@@ -3,7 +3,7 @@ class JurisdictionsController < ApplicationController
   
   def index
     @jurisdictions.map &:set_attribute_keys
-    
+    @changes=Change.all
     respond_to do |format|
       format.html # go to view
       format.json { render json: (@jurisdictions.map &:attribute_keys) }

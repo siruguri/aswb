@@ -7,6 +7,7 @@ AswbPrototype::Application.routes.draw do
   resources :changes
   
   resources :jurisdictions do
+    resources :licensed_practices
     member do
       post 'suggest_draft/:attribute_key', action: 'suggest_draft'
     end
