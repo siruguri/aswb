@@ -1,0 +1,2 @@
+  $('#comment_content').val('');
+  $('.comment-container').append("<div class='comment'><span><a href='#'><%= @comment.user.email %></a></span><br />" + "<%= @comment.content %>" + "</div>");
