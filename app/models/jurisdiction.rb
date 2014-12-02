@@ -4,7 +4,7 @@ class Jurisdiction < ActiveRecord::Base
   has_many :licensed_practices
   has_many :practice_infos, through: :licensed_practices
   
-  belongs_to :owner, class_name: 'User'
+  belongs_to :owner, class_name: 'User', inverse_of: :jurisdictions
 
   def set_attribute_keys
     # allowed keys
@@ -29,12 +29,12 @@ class Jurisdiction < ActiveRecord::Base
     @attribute_keys=h
   end
 
-  def has_practice?(title)
-    self.practice_infos.where(title: title).count > 0
+  def has_practice?(id)
+    self.practice_infos.where(id: id).count > 0
   end
   
-  def reverse_map_attribute_key(prac_title, key, val, update_type)
-    target_prac = self.practice_infos.where(title: prac_title)[0]
+  def reverse_map_attribute_key(prac_id, key, val, update_type)
+    target_prac = self.practice_infos.where(id: prac_id)[0]
     if update_type == 'draft'
       create_draft(key, val, target_prac)
     elsif update_type == 'confirm'
@@ -63,7 +63,7 @@ class Jurisdiction < ActiveRecord::Base
   end
 
   def self.has_attribute_key?(key)
-    if key==:exam_required
+    if [:exam_required, :board_approval, :renewal_period_in_years, :ce_in_hours].include? key
       true
     else
       false

@@ -1,4 +1,16 @@
-= form_tag "suggest_draft/exam_required" do
-  = hidden_field_tag 'val', 'Make it so'
-  = hidden_field_tag 'practice_title', 'Registered Social Worker'
-  = submit_tag 'Submit a draft!'
+= form_tag "suggest_draft" do
+  .key-label
+    Select Requirement to Change:
+  = select_tag :attribute_key, options_for_select([["Exam Required", "exam_required"], ["Board Approval", "board_approval"], ["Renewal Period (Years)", "renewal_period_in_years"], ["Contin. Edu. (Hours)", "ce_in_hours"]])
+  %p
+
+  .key-label
+    Select Licensed Practice:
+  = select_tag :practice_info_id, options_for_select(@jurisdiction.practice_infos.collect { |lp| [lp.title, lp.id]})
+  %p  
+
+  = text_area_tag :val, '', placeholder: 'Enter suggestion here.'
+
+  %p  
+
+  = submit_tag 'Submit Suggested Change'
