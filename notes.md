@@ -53,3 +53,12 @@ Example -
 * Assign a value to a model instance's metadata attribute - /jurisdiction/32/metadata_attributes/new
   * gather metadata attributes for the model
   * build association for instance's metadata_values - duplicate behavior of scaffolding based on each metadata_value's metadata_attribute's type - if it's integer, tag with note that causes JS validation; if it's multiple choice, generate a select; if it's boolean, a Yes/No radio; if it's year, a year dropdown; if it's text, then a text box
+
+# Notes on finishing this up
+
+* Root goes to /jurisdictions
+* /jurisdictions needs sign in
+* Sign in page should show available accounts
+* Connect data with specific jurisdictions
+* Gray out Accept/Deny
+* Change app brand to ASWB

@@ -1,9 +1,11 @@
 class JurisdictionsController < ApplicationController
-  load_and_authorize_resource
+#  load_and_authorize_resource
   
   def index
+    @jurisdictions = Jurisdiction.where(owner: current_user)
     @jurisdictions.map &:set_attribute_keys
-    @changes=Change.all
+    @changes=Change.accessible_by current_ability
+
     respond_to do |format|
       format.html # go to view
       format.json { render json: (@jurisdictions.map &:attribute_keys) }

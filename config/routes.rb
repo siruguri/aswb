@@ -16,7 +16,8 @@ AswbPrototype::Application.routes.draw do
       post 'suggest_draft/:attribute_key', action: 'suggest_draft'
     end
   end
-  
+
+  root to: 'jurisdictions#index'
   resources :static
 
   # Logins and Profiles

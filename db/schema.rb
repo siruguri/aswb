@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124221227) do
+ActiveRecord::Schema.define(version: 20141202010816) do
 
   create_table "changes", force: true do |t|
     t.text     "changed_val"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20141124221227) do
     t.datetime "updated_at"
     t.boolean  "admin"
     t.integer  "age"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

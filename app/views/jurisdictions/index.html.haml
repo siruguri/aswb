@@ -1,11 +1,15 @@
 .container.changes-index
-  %h1 Pending Changes
-  %h3
-    %ul.unstyled
-      %li
-        - @changes.each do |change|
-          = link_to change.jurisdiction.name, change.jurisdiction
-          wants to
-          modify their
-          = link_to key_display(change.changed_key), jurisdiction_licensed_practice_path(change.jurisdiction, change.practice_info, changed_key: change.changed_key)
-          requirement
+  - if @changes.empty?
+    %h2 No Pending Changes
+  - else
+    %h2
+      = "Pending Changes" + (current_user.admin? ? '' : ' Submitted By You')
+    %h3
+      %ul.unstyled
+        %li
+          - @changes.each do |change|
+            = link_to change.jurisdiction.name, change.jurisdiction
+            wants to
+            modify their
+            = link_to key_display(change.changed_key), jurisdiction_licensed_practice_path(change.jurisdiction, change.practice_info, changed_key: change.changed_key)
+            requirement

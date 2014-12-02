@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
   end
   rescue_from CanCan::AccessDenied do |exception|
     error_message = I18n.t(:access_denied_message)
-    go_back_or_root(error_message)
+    #    go_back_or_root(error_message)
+    redirect_to '/users/sign_in', notice: 'Please sign in to access the website.'
   end
 
   private
