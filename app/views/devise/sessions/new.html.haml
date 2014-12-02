@@ -31,6 +31,6 @@
   .col-xs-4
     The following user accounts are available for this demo:
     %ul
-    - User.all.each do |u|
-      %li
-        = "#{u.name}: #{u.email}"
+      - User.all.each do |u|
+        %li
+          = "#{u.name}: #{u.email}"

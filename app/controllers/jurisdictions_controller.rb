@@ -1,8 +1,7 @@
 class JurisdictionsController < ApplicationController
-#  load_and_authorize_resource
+  load_and_authorize_resource
   
   def index
-    @jurisdictions = Jurisdiction.where(owner: current_user)
     @jurisdictions.map &:set_attribute_keys
     @changes=Change.accessible_by current_ability
 
