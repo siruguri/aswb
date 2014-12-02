@@ -1,4 +1,4 @@
-alb=Jurisdiction.find_or_create_by name: 'Alberta'
+alb=Jurisdiction.find_by_name 'Alberta'
 rsw=PracticeInfo.find_or_create_by title: 'Registered Social Worker'
 rsw.initials='RSW'
 rsw.save

@@ -4,15 +4,19 @@ AswbPrototype::Application.routes.draw do
 
   # I like having this to populate the navbar with, via the database rather than do it in the views.
   resources :navbar_entries
-  resources :changes
+
+  resources :changes do
+    resources :comments, only: [:create]
+  end
   
   resources :jurisdictions do
     resources :licensed_practices
     member do
-      post 'suggest_draft/:attribute_key', action: 'suggest_draft'
+      post 'suggest_draft', action: 'suggest_draft'
     end
   end
-  
+
+  root to: 'jurisdictions#index'
   resources :static
 
   # Logins and Profiles

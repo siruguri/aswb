@@ -30,6 +30,13 @@ class LicensedPractice < ActiveRecord::Base
   def map_initials
     self.practice_info.initials
   end
+  def map_board_approval
+    if board_approval
+      'Required'
+    else
+      'Not Required'
+    end
+  end
 
   def get_attribute_val(key)
     mesg = "map_#{key}"

@@ -20,8 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  site_title: "A Basic Rails App"
-  site_brand: 'Rails Skeleton'
+  site_title: "ASWB RFP Prototype"
+  site_brand: 'ASWB Prototype'
   successful_resource_creation: "Resource successfully created"
   successful_resource_update: "Resource successfully updated"
   errors_found: "Errors found"

@@ -8,14 +8,14 @@ class Ability
 
     # Not logged in = can only see the tasks index page.
     if !user.id
-      can :index, Jurisdiction
+#      can :index, Jurisdiction
     else
       if user.admin?
         can :manage, :all
       else
-        can [:edit, :read, :update, :destroy], Jurisdiction, :owner_id => user.id
-        can [:read], Change, jurisdiction: {owner: user}
-        can [:read], LicensedPractice, jurisdiction: {owner: user}
+        can [:edit, :read, :update, :destroy, :suggest_draft], Jurisdiction, :owner_id => user.id
+        can [:read], Change, jurisdiction: {owner_id: user.id}
+        can [:read], LicensedPractice, jurisdiction: {owner_id: user.id}
       end
     end
 

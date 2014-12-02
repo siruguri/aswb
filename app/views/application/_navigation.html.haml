@@ -29,8 +29,11 @@
 
       %ul.nav.navbar-nav.navbar-right
         - if current_user
+          - if !current_user.admin?
+            %li
+              = link_to "Suggest Edit", url_for([:edit, current_user.jurisdictions.first])
           %li
-            = link_to 'Sign Out', destroy_user_session_path, :method => :delete
+            = link_to "Sign Out (#{current_user.email})", destroy_user_session_path, :method => :delete
         - else
           %li
             = link_to 'Sign In', new_user_session_path

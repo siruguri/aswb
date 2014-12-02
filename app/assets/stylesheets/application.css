@@ -11,7 +11,7 @@
  *= require_self
  *= require bootstrap
  *= require bootstrap_and_overrides
- *= require custom.css
+ *= require custom
  *= require changes
  *= require formtastic-bootstrap
  */
