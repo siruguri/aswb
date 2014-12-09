@@ -12,6 +12,7 @@ class Ability
     else
       if user.admin?
         can :manage, :all
+        can :dashboard
       else
         can [:edit, :read, :update, :destroy, :suggest_draft], Jurisdiction, :owner_id => user.id
         can [:read], Change, jurisdiction: {owner_id: user.id}

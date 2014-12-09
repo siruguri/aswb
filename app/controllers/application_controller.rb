@@ -39,6 +39,10 @@ class ApplicationController < ActionController::Base
     @navbar_entries = NavbarEntry.all.map do |entry|
       {title: entry.title, url: entry.url }
     end
+
+    if current_user && current_user.admin? # Admin can see rails admin
+      @navbar_entries << {title: 'Administer', url: '/rails_admin'}
+    end
   end
 
   def go_back_or_root(message)

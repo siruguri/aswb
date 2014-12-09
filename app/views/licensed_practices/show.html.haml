@@ -13,10 +13,15 @@
           %p
             = @req_change.changed_val
 
-          .change-buttons
-            %button{class: 'btn btn-success'} Accept
-            %button{class: 'btn btn-danger'} Deny
-
+          - if current_user.admin?
+            .change-buttons
+              %button{class: 'btn btn-success'} Accept
+              %button{class: 'btn btn-danger'} Deny
+          - else
+            .change-buttons
+              %button{class: 'btn btn-success'} Edit
+              %button{class: 'btn btn-danger'} Retract
+                
         .comments
           .comment-header
             %p Comments

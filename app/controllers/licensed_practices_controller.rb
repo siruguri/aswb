@@ -12,6 +12,6 @@ class LicensedPracticesController < ApplicationController
 
   private
   def load_licensed_practice
-    @licensed_practice = LicensedPractice.find_by(practice_info_id: params[:practice_info_id], jurisdiction_id: params[:jurisdiction_id])
+    @licensed_practice = LicensedPractice.find_by(practice_info_id: params[:id], jurisdiction_id: params[:jurisdiction_id])
   end
 end
